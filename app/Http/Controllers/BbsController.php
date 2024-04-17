@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class BbsController extends Controller
 {
-    //
+    public function index(){
+        return response("Здусь будет перечень объявлений")
+            ->header('Content-Type', 'text/plain');
+    }
 }
