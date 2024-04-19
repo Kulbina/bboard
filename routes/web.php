@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BbsController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,5 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\BbsController::class, 'index'])->name('index');
-Route::get('/{bb}', [\App\Http\Controllers\BbsController::class, 'detail'])->name('detail');
+Route::get('/', [BbsController::class, 'index'])->name('index');
+Auth::routes();
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home/create', [HomeController::class, 'create'])->name('bb.create');
+Route::get('/home', [HomeController::class, 'store'])->name('bb.store');
+
+Route::get('/{bb}', [BbsController::class, 'detail'])->name('detail');
+
